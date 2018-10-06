@@ -1,0 +1,4 @@
+Right mouse button : Spawn balls
+Left mouse button  : Negative local gravity
+Middel mouse button: Positive local gravity
+n: Disable global gravity, press any key to re-enable
