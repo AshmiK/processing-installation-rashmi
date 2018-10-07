@@ -24,7 +24,7 @@ class ballPhysics {
   void spawn(float _x, float _y) {
     location.x = _x;
     location.y=_y;
-    velocity.x = random(-15, 15); 
+    velocity.x = random(-1, 1); 
     velocity.y=random(-10, 15);
     gravity2.x = _x;
     gravity2.y=_y;
