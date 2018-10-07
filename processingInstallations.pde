@@ -5,6 +5,9 @@
 
 import processing.video.*;
 
+import processing.sound.*;
+SoundFile file;
+
 Capture video;
 
 color trackColor; 
@@ -169,4 +172,6 @@ void mousePressed() {
   // Save color where the mouse is clicked in trackColor variable
   int loc = mouseX + mouseY*video.width;
   trackColor = video.pixels[loc];
+    file = new SoundFile(this, "snare.wav");
+  file.play();
 }
