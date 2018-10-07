@@ -4,10 +4,7 @@ int ballCount = 150;
 ballPhysics[] ball = new ballPhysics[ballCount];
 
 int timer;
-import ddf.minim.*;
 
-Minim minim;
-AudioSample Golfball;
 
 void setup() 
 {
@@ -20,8 +17,7 @@ void setup()
   for (int i = 0; i<ballCount; i++) {
     ball[i] = new ballPhysics();
   }
-  minim = new Minim(this);
-  Golfball = minim.loadSample("Golfball.mp3",512);
+ 
   
   
 }
@@ -82,7 +78,3 @@ if (mousePressed) {
 
 void mousePressed() {
 }
-
-
-
-

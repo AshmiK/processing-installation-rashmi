@@ -32,7 +32,14 @@ class Blob {
       //point(v.x, v.y);
     }
   }
-
+  
+  float midX(){
+    return (minx+maxx)/2;
+  }
+  
+  float midY(){
+    return (miny+maxy)/2;
+  }
 
   void add(float x, float y) {
     points.add(new PVector(x, y));
@@ -41,6 +48,7 @@ class Blob {
     maxx = max(maxx, x);
     maxy = max(maxy, y);
   }
+ 
 
   float size() {
     return (maxx-minx)*(maxy-miny);

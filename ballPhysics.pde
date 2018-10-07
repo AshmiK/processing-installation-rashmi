@@ -21,7 +21,7 @@ class ballPhysics {
   ballPhysics() {
   }
 
-  void spawn(int _x, int _y) {
+  void spawn(float _x, float _y) {
     location.x = _x;
     location.y=_y;
     velocity.x = random(-15, 15); 
@@ -56,26 +56,19 @@ class ballPhysics {
     } 
     if (present == 1) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
       time++;
-      if (mousePressed) {
-        gravity2.x=mouseX;
-        gravity2.y=mouseY;
+       {
+        gravity2.x=x;
+        gravity2.y=y;
         distGravity2=PVector.dist(gravity2,location);
         gravity2.sub(location);
         gravity2.normalize();
-        if(mouseButton==LEFT)
         gravity = gravity.mult(gravity2, gravStrength*2/sq(1+distGravity2/1000.0));
-        if(mouseButton==CENTER)
-        gravity = gravity.mult(gravity2, gravStrength*-2/sq(1+distGravity2/1000.0));
+        //if(mouseButton==CENTER)
+       // gravity = gravity.mult(gravity2, gravStrength*-2/sq(1+distGravity2/1000.0));
         if(key!='n')
         gravity.y=gravity.y+gravStrength;
         velocity = velocity.mult(velocity, 0.995);
-      } else {
-        gravity.x=0;
-        if(key!='n')
-        gravity.y=gravStrength;
-        else
-        gravity.y=0;
-      }
+      } 
       
       gravity = gravity.div(gravity, r/5.0);
       velocity.add(gravity);
@@ -101,8 +94,8 @@ class ballPhysics {
       if ((location.y<=r || location.y>=height-r) && bouncedy == 0 && (location.y<height/2 || exit == 0)) {
         velocity.y=-velocity.y*0.85;
         bouncedy = 1;
-        Golfball.setGain(-20+velocity.mag());
-        Golfball.trigger();
+
+
         velocity.x=velocity.x*0.8;
         if (abs(velocity.y)<3.5 && location.y>height/2)
           exit = 1;
@@ -116,8 +109,7 @@ class ballPhysics {
       if ((location.x<=r || location.x>=width-r) && bouncedx == 0) {
         velocity.x=-velocity.x*0.8;
         bouncedx = 1;
-        Golfball.setGain(-20+velocity.mag());
-        Golfball.trigger();
+
       }
       if (location.x>r && location.x<width-r)
         bouncedx = 0;
@@ -130,4 +122,3 @@ class ballPhysics {
     }
   }
 }
-

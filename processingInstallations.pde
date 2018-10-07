@@ -8,18 +8,31 @@ import processing.video.*;
 Capture video;
 
 color trackColor; 
-float threshold = 25;
+float threshold = 50;
 float distThreshold = 50;
 
 ArrayList<Blob> blobs = new ArrayList<Blob>();
 
+int ballCount = 150;
+ballPhysics[] ball = new ballPhysics[ballCount];
+int timer;
+
 void setup() {
-  size(640, 360);
+  size(1280, 720);
   String[] cameras = Capture.list();
   printArray(cameras);
-  video = new Capture(this, 640, 360);
+  video = new Capture(this, 1280, 720);
   video.start();
-  trackColor = color(255, 0, 0);
+  trackColor = color(217, 191, 0);
+  
+  colorMode(HSB, 255, 255, 255);  
+  noStroke();
+  frameRate(60);
+  smooth();
+   frame.setResizable(true);
+  for (int i = 0; i<ballCount; i++) {
+    ball[i] = new ballPhysics();
+  }
 }
 
 void captureEvent(Capture video) {
@@ -43,8 +56,8 @@ void keyPressed() {
 }
 
 void draw() {
-  video.loadPixels();
-  image(video, 0, 0);
+  //video.loadPixels();
+  //image(video, 0, 0);
 
   blobs.clear();
 
@@ -86,6 +99,49 @@ void draw() {
   for (Blob b : blobs) {
     if (b.size() > 500) {
       b.show();
+      
+  background(255);
+  fill(0);
+  float midx=b.midX();
+  float midy=b.midY();
+  ellipse(midx, midy,15, 15);
+
+
+  int ballCounter=0;
+  int exitCounter=0;
+  for (int i = 0; i<ballCount; i++) {
+    if (ball[i].present==1) {
+      ballCounter++;
+      //println(str(i)+":"+str(ball[i].time)+" x:"+str(ball[i].location.x)+" y:"+str(ball[i].location.y)+" vx:"+str(ball[i].velocity.x)+" vy:"+str(ball[i].velocity.y));
+    }
+    if (ball[i].exit==1) {
+      exitCounter++;
+    }
+    ball[i].update();
+  }
+  fill(0);
+  textSize(18);
+  text(str(ballCounter)+"/"+str(ballCount), 5, 15);
+  text("Exit:"+str(exitCounter), 5, 15+18);
+  if(key!='n')
+  text("Gravity:ON", 5, 15+18*2);
+  else
+  text("Gravity:OFF", 5, 15+18*2);
+  text("FPS:"+str(int(frameRate*10)/10.0), 5, 15+18*3);
+
+  if (timer>3) {
+    timer=0;
+    
+      for (int i = 0; i<ballCount; i++) {
+        if (ball[i].present == 0) {
+          //ball[i].spawn(random(50,width-50),random(50,height-50));
+          ball[i].spawn(midx, midy);
+          return;
+        }
+      }
+    
+  } else
+    timer++;
     }
   }
 
@@ -93,6 +149,7 @@ void draw() {
   fill(0);
   text("distance threshold: " + distThreshold, width-10, 25);
   text("color threshold: " + threshold, width-10, 50);
+  
 }
 
 
