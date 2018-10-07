@@ -98,15 +98,20 @@ class ballPhysics {
 
         // Play the soundfile from the array with the respective rate and loop set to false
         if (location.x<=(width/5)){
-          file[0].play(r*r, 1.0);}
+          file[0].play(r/8, r/8);
+        background(51);}
           else if (location.x<=(2*width/5)){
-            file[1].play(r*r, 1.0);}
+            file[1].play(r/8, r/8);
+          background(102);}
             else if (location.x<=(3*width/5)){
-            file[2].play(r*r, 1.0);}
+            file[2].play(r/8, r/8);
+          background(153);}
             else if (location.x<=(4*width/5)){
-            file[3].play(r*r, 1.0);}
+            file[3].play(r/8, r/8);
+          background(204);}
             else {
-            file[4].play(r*r, 1.0);}
+            file[4].play(r/8, r/8);
+          background(255);}
 
 
         velocity.x=velocity.x*0.8;

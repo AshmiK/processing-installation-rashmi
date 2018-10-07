@@ -109,11 +109,11 @@ void draw() {
     if (b.size() > 500) {
       b.show();
       
-  background(255);
-  fill(0);
+
   float midx=1280-b.midX();
   float midy=b.midY();
-  ellipse(midx, midy,15, 15);
+  fill(217, 191, 0);
+  ellipse(midx, midy,10, 10);
 
 
   int ballCounter=0;
@@ -176,6 +176,5 @@ float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
 
 void mousePressed() {
   // Save color where the mouse is clicked in trackColor variable
-  int loc = mouseX + mouseY*video.width;
-  trackColor = video.pixels[loc];
+
 }
