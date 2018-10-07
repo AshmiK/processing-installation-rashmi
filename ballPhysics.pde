@@ -95,16 +95,18 @@ class ballPhysics {
       if ((location.y<=r || location.y>=height-r) && bouncedy == 0 && (location.y<height/2 || exit == 0)) {
         velocity.y=-velocity.y*0.85;
         bouncedy = 1;
+
+        // Play the soundfile from the array with the respective rate and loop set to false
         if (location.x<=(width/5)){
-          file[0].play(0.5,0.5);}
+          file[0].play(r*r, 1.0);}
           else if (location.x<=(2*width/5)){
-            file[1].play(0.6,0.4);}
+            file[1].play(r*r, 1.0);}
             else if (location.x<=(3*width/5)){
-            file[2].play(0.7,0.3);}
+            file[2].play(r*r, 1.0);}
             else if (location.x<=(4*width/5)){
-            file[3].play(0.8,0.2);}
+            file[3].play(r*r, 1.0);}
             else {
-            file[4].play(0.9,0.1);}
+            file[4].play(r*r, 1.0);}
 
 
         velocity.x=velocity.x*0.8;
