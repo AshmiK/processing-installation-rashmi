@@ -102,7 +102,7 @@ void draw() {
       
   background(255);
   fill(0);
-  float midx=b.midX();
+  float midx=1280-b.midX();
   float midy=b.midY();
   ellipse(midx, midy,15, 15);
 
@@ -129,7 +129,7 @@ void draw() {
   text("Gravity:OFF", 5, 15+18*2);
   text("FPS:"+str(int(frameRate*10)/10.0), 5, 15+18*3);
 
-  if (timer>3) {
+  if (timer>100) {
     timer=0;
     
       for (int i = 0; i<ballCount; i++) {
