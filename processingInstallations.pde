@@ -22,9 +22,11 @@ int timer;
 void setup() {
   int numsounds = 5;
   file = new SoundFile[numsounds];
-  for (int i = 0; i < numsounds; i++) {
-    file[i] = new SoundFile(this, (i+1) + ".aif");
-  }
+  file[0] = new SoundFile(this, "kick.wav");
+  file[0] = new SoundFile(this, "snare.wav");
+  file[0] = new SoundFile(this, "cowbell.wav");
+  file[0] = new SoundFile(this, "clap.wav");
+  file[0] = new SoundFile(this, "cymbal.wav");
   size(1280, 720);
   String[] cameras = Capture.list();
   printArray(cameras);
@@ -136,7 +138,7 @@ void draw() {
   text("Gravity:OFF", 5, 15+18*2);
   text("FPS:"+str(int(frameRate*10)/10.0), 5, 15+18*3);
 
-  if (timer>100) {
+  if (timer>40) {
     timer=0;
     
       for (int i = 0; i<ballCount; i++) {

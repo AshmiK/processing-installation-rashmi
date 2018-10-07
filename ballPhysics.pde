@@ -95,6 +95,16 @@ class ballPhysics {
       if ((location.y<=r || location.y>=height-r) && bouncedy == 0 && (location.y<height/2 || exit == 0)) {
         velocity.y=-velocity.y*0.85;
         bouncedy = 1;
+        if (location.y<=(width/5)){
+          file[0].play();}
+          else if (location.y<=(2*width/5)){
+            file[1].play();}
+            else if (location.y<=(3*width/5)){
+            file[2].play();}
+            else if (location.y<=(4*width/5)){
+            file[3].play();}
+            else {
+            file[4].play();}
 
 
         velocity.x=velocity.x*0.8;
@@ -110,8 +120,7 @@ class ballPhysics {
       if ((location.x<=r || location.x>=width-r) && bouncedx == 0) {
         velocity.x=-velocity.x*0.8;
         bouncedx = 1;
-
-      }
+         }
       if (location.x>r && location.x<width-r)
         bouncedx = 0;
 
