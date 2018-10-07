@@ -23,10 +23,10 @@ void setup() {
   int numsounds = 5;
   file = new SoundFile[numsounds];
   file[0] = new SoundFile(this, "kick.wav");
-  file[0] = new SoundFile(this, "snare.wav");
-  file[0] = new SoundFile(this, "cowbell.wav");
-  file[0] = new SoundFile(this, "clap.wav");
-  file[0] = new SoundFile(this, "cymbal.wav");
+  file[1] = new SoundFile(this, "snare.wav");
+  file[2] = new SoundFile(this, "cowbell.wav");
+  file[3] = new SoundFile(this, "clap.wav");
+  file[4] = new SoundFile(this, "cymbal.wav");
   size(1280, 720);
   String[] cameras = Capture.list();
   printArray(cameras);
