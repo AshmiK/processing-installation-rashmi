@@ -58,7 +58,7 @@ class ballPhysics {
       time++;
        {
         gravity2.x=x;
-        gravity2.y=y;
+        gravity2.y=720;
         distGravity2=PVector.dist(gravity2,location);
         gravity2.sub(location);
         gravity2.normalize();
