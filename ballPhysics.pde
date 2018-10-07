@@ -1,3 +1,16 @@
+import processing.sound.*;
+SoundFile snare;
+SoundFile kick;
+SoundFile cymbal;
+SoundFile clap;
+SoundFile cowbell;
+
+snare = new SoundFile(this, "snare.wav");
+kick = new SoundFile(this, "kick.wav");  
+cymbal = new SoundFile(this, "cymbal.wav");
+clap = new SoundFile(this, "clap.wav");
+cowbell = new SoundFile(this, "cowbell.wav");
+
 class ballPhysics {
   int present = 0;
   int spawn = 0;
