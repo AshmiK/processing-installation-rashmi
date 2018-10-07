@@ -126,7 +126,7 @@ void draw() {
     if (ball[i].exit==1) {
       exitCounter++;
     }
-    ball[i].update(midx);
+    ball[i].update(midx,midy);
   }
   fill(0);
   textSize(18);

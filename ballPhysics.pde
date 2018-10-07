@@ -48,7 +48,7 @@ class ballPhysics {
     
   }
   **/
-  void update(float midx) {
+  void update(float midx, float midy) {
 
 
     if (present == 0 && spawn == 1) {
@@ -59,7 +59,7 @@ class ballPhysics {
       time++;
        {
         gravity2.x=midx;
-        gravity2.y=720;
+        gravity2.y=midy;
         distGravity2=PVector.dist(gravity2,location);
         gravity2.sub(location);
         gravity2.normalize();
