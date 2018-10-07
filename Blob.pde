@@ -21,11 +21,11 @@ class Blob {
   }
 
   void show() {
-    stroke(0);
+    /**stroke(0);
     fill(255);
     strokeWeight(2);
     rectMode(CORNERS);
-    rect(minx, miny, maxx, maxy);
+    rect(minx, miny, maxx, maxy);**/
 
     for (PVector v : points) {
       //stroke(0, 0, 255);

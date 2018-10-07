@@ -102,7 +102,7 @@ void draw() {
       
   background(255);
   fill(0);
-  float midx=b.midX();
+  float midx=1280-b.midX();
   float midy=b.midY();
   ellipse(midx, midy,15, 15);
 
