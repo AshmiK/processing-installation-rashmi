@@ -6,6 +6,9 @@
 import processing.video.*;
 Capture video;
 
+import processing.sound.*;
+SoundFile[] file;
+
 color trackColor; 
 float threshold = 50;
 float distThreshold = 50;
@@ -17,6 +20,11 @@ ballPhysics[] ball = new ballPhysics[ballCount];
 int timer;
 
 void setup() {
+  int numsounds = 5;
+  file = new SoundFile[numsounds];
+  for (int i = 0; i < numsounds; i++) {
+    file[i] = new SoundFile(this, (i+1) + ".aif");
+  }
   size(1280, 720);
   String[] cameras = Capture.list();
   printArray(cameras);
